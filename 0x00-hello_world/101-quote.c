@@ -6,7 +6,7 @@
  *Description: hmmm
  *   ssize-_t wrsad;
  *
- *Return: Alawys 1 (error)
+ *Return: 1 (error).
 */
 
 int main(void)
