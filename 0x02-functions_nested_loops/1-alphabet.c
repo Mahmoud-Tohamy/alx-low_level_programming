@@ -1,18 +1,19 @@
-#include"main.h"
-
-/**
- * print_alphabet(void) - entry point
- *
- * Description: This function prints the alphabet, in lowercase
- *
- * Return: void
+/*
+ * File: 1-alphabet.c
+ * Auth: Brennan D Baraban
  */
 
-void print_alphabet(void);
-{
-	int ch;
+#include "holberton.h"
 
-	for (ch = 'a'; ch <= 'z'; ch++)
-		_putchar(ch);
+/**
+ * print_alphabet - prints the alphabet in lowercase, followed by a new line.
+ */
+void print_alphabet(void)
+{
+	char letter;
+
+	for (letter = 'a'; letter <= 'z'; letter++)
+		_putchar(letter);
+
 	_putchar('\n');
 }
