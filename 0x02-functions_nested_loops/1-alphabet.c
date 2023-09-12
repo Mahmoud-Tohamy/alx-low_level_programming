@@ -1,9 +1,12 @@
 #include "main.h"
 
 /**
- * print-alphabet - utilizes on the -putchar function to print
- *		   the alphabet a - z
-*/
+ * print_alphabet(void) - entry point
+ *
+ * Description: This function prints the alphabet, in lowercase
+ *
+ * Return: void
+ */
 
 void print_alphabet(void);
 {
