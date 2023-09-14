@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  *print_most_numbers - prints numbers except 2 and 4
@@ -9,13 +10,12 @@
 
 void print_most_numbers(void)
 {
-	int number;
+	int a;
 
-	for (number = 0; number < 9; number++)
+	for (a = '0'; a <= '9'; a++)
 	{
-		if ((number == 2) || (number == 4))
-			continue;
-		_putchar(number = 48);
+		if (a != '2' && a != '4')
+		_putchar(a);
 	}
 	_putchar('\n');
 }
