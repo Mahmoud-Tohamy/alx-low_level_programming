@@ -1,19 +1,31 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- *print_square - prints squares
- *@size: parameter
- *Return: Always 0 (success)
-*/
-
+  * print_square -  checks for a digit
+  * @size: The character to be checked
+  *
+  * Return: Always 0
+  */
 void print_square(int size)
 {
-	int row, column;
+	int x = 0;
+	int y = 0;
 
-	for (row = 1; row <= size; row++)
+	if (size > 0)
 	{
-		for (cloumn = 1; cloumn <= size; column++)
-			_putchar('#');
+		while (x < size)
+		{
+			while (y < size)
+			{
+				_putchar('#');
+				y++;
+			}
+		y = 0;
+		x++;
 		_putchar('\n');
+		}
 	}
+	else
+		_putchar('\n');
 }
