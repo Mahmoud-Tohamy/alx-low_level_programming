@@ -10,12 +10,12 @@
 
 int main(int argc, char const *argv[])
 {
-	int x = 0;
+	int i = 0;
 
 	while (argc--)
 	{
-		printf("%s\n", argv[x]);
-		x++
+		printf("%s\n", argv[i]);
+		i++
 	}
 
 	return (0);
