@@ -2,17 +2,15 @@
 
 /**
  * alloc_grid - Entry point
- *
  *@width: rows of matrix
- *
  *@height: columns of string
- *
  * Return: a pointer to a 2 dimensional array of integers or null
  */
 int **alloc_grid(int width, int height)
 {
 	int **matrix;
-	int o, x;
+	int i;
+	int j;
 	int l;
 	int *p;
 
@@ -21,14 +19,14 @@ int **alloc_grid(int width, int height)
 	matrix = (int **)malloc(height * sizeof(int *));
 	if (matrix == NULL)
 		return (NULL);
-	for (o = 0; o < height; o++)
+	for (i = 0; i < height; i++)
 	{
-		*(matrix + o) = (int *)malloc(width * sizeof(int));
-		if (*(matrix + o) == NULL)
+		*(matrix + i) = (int *)malloc(width * sizeof(int));
+		if (*(matrix + i) == NULL)
 		{
-			for (o = 0; o < height; o++)
+			for (i = 0; i < height; i++)
 			{
-				p = matrix[o];
+				p = matrix[i];
 				free(p);
 			}
 			free(matrix);
@@ -37,9 +35,9 @@ int **alloc_grid(int width, int height)
 	}
 	for (l = 0; l < height; l++)
 	{
-		for (x = 0; j < width; x++)
+		for (j = 0; j < width; j++)
 		{
-			matrix[l][x] = 0;
+			matrix[l][j] = 0;
 		}
 	}
 	return (matrix);
