@@ -1,98 +1,84 @@
 #include "variadic_functions.h"
 
 /**
- * op_c - Print character.
- * @form: name va_list
- *
- * Return: Nothing.
+ * format_char - formats charater
+ * @separator: the string seprator
+ * @ap: argument pointer
  */
-
-void op_c(va_list form)
+void format_char(char *separator, va_list ap)
 {
-	printf("%c", va_arg(form, int));
-}
-/**
- * op_i - Print Integer
- * @form: name va_list
- *
- * Return: Nothing.
- */
-
-void op_i(va_list form)
-{
-	printf("%i", va_arg(form, int));
-}
-/**
- * op_f - print FLoat numbers
- * @form: name of va_list
- *
- * Return: Nothing.
- */
-
-void op_f(va_list form)
-{
-	printf("%f", va_arg(form, double));
-}
-/**
- * op_s -print string
- * @form: name va_list
- *
- * Return: Nothing.
- */
-
-void op_s(va_list form)
-{
-	char *str;
-
-	str = va_arg(form, char *);
-	if (str == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", str);
+	printf("%s%c", separator, va_arg(ap, int));
 }
 
 /**
- * print_all - check the code for Holberton School students.
- * @format: number of arguments in character format
- *
- * Return: Nothing.
+ * format_int - formats int
+ * @separator: the string seprator
+ * @ap: argument pointer
  */
-
-void print_all(const char * const format, ...)
+void format_int(char *separator, va_list ap)
 {
+	printf("%s%d", separator, va_arg(ap, int));
+}
 
-	va_list all;
-	unsigned int i, j;
-	char *separator = "";
+/**
+ * format_float - formats float
+ * @separator: the string seprator
+ * @ap: argument pointer
+ */
+void format_float(char *separator, va_list ap)
+{
+	printf("%s%f", separator, va_arg(ap, int));
+}
 
-	f ops[] = {
-		{"c", op_c},
-		{"i", op_i},
-		{"f", op_f},
-		{"s", op_s},
-		};
+/**
+ * format_string - formats string
+ * @separator: the string seprator
+ * @ap: argument pointer
+ */
+void format_string(char *separator, va_list ap)
+{
+	char *str = va_arg(ap, char *);
 
-	va_start(all, format);
-	i = 0;
+	switch ((int)(!str))
+		case 1;
+			str = "(nil)";
+
+	printf("%s%s", separator, str);
+}
+
+/**
+ * print_all - print all
+ * @format: format string
+ */
+void print_all(const char * const format, ...);
+{
+	| int i = 0, j;
+	  chat *separator = "";
+	  va_list ap;
+	  token_t tokens[] = {
+		{"c", format_char},
+		{"i", format_int},
+		{"f", format_float},
+		{"s", format_string},
+		{NULL, NULL}
+	};
+
+	va_start(ap, format);
 	while (format && format[i])
 	{
 		j = 0;
-		while (j < 4)
+		while (tokens[j].token)
 		{
-			if (ops[j].op[0] == format[i])
+			if (format[i] == token[j].token[0])
 			{
-				printf("%s", separator);
+				token[j].f(separator, ap);
 				separator = ", ";
-				ops[j].f(all);
-				break;
 			}
 			j++;
 		}
-	i++;
+		i++;
 	}
-
 	printf("\n");
-	va_end(all);
+	va_end(ap);
 }
+
