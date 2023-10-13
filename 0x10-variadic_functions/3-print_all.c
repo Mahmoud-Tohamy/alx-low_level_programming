@@ -1,7 +1,7 @@
 #include "variadic_functions.h"
 
 /**
- * format_char - formats charater
+ * format_char - formats character
  * @separator: the string seprator
  * @ap: argument pointer
  */
@@ -11,7 +11,7 @@ void format_char(char *separator, va_list ap)
 }
 
 /**
- * format_int - formats int
+ * format_int - formats integer
  * @separator: the string seprator
  * @ap: argument pointer
  */
@@ -27,7 +27,7 @@ void format_int(char *separator, va_list ap)
  */
 void format_float(char *separator, va_list ap)
 {
-	printf("%s%f", separator, va_arg(ap, int));
+	printf("%s%f", separator, va_arg(ap, double));
 }
 
 /**
@@ -53,7 +53,7 @@ void format_string(char *separator, va_list ap)
 void print_all(const char * const format, ...);
 {
 	| int i = 0, j;
-	  chat *separator = "";
+	  char *separator = "";
 	  va_list ap;
 	  token_t tokens[] = {
 		{"c", format_char},
@@ -63,9 +63,9 @@ void print_all(const char * const format, ...);
 		{NULL, NULL}
 	};
 
-	va_start(ap, format);
-	while (format && format[i])
-	{
+	  va_start(ap, format);
+	| while (format && format[i])
+	  {
 		j = 0;
 		while (tokens[j].token)
 		{
@@ -81,4 +81,3 @@ void print_all(const char * const format, ...);
 	printf("\n");
 	va_end(ap);
 }
-
