@@ -3,14 +3,14 @@
 #include <stdlib.h>
 
 /**
- * main - main function.
+ * main - check the code for Holberton School students.
  * @argc: num of args
  * @argv: argument vector
  * Return: Always 0.
  */
 int main(int argc, char **argv)
 {
-	char *p = (char *) main;
+	char *p = (char *)main;
 	int b;
 
 	if (argc != 2)
@@ -20,7 +20,6 @@ int main(int argc, char **argv)
 		printf("Error\n"), exit(2);
 
 	while (b--)
-	{
 		printf("%02hhx%s", *p++, b ? " " : "\n");
 	return (0);
 }
