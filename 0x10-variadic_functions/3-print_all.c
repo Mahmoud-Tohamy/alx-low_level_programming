@@ -65,7 +65,7 @@ void print_all(const char * const format, ...);
 
 	  va_start(ap, format);
 	| while (format && format[i])
-	  {
+	{
 		j = 0;
 		while (tokens[j].token)
 		{
@@ -77,7 +77,8 @@ void print_all(const char * const format, ...);
 			j++;
 		}
 		i++;
+
 	}
-	printf("\n");
-	va_end(ap);
+	 printf("\n");
+	 va_end(ap);
 }
