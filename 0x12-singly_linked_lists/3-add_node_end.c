@@ -7,7 +7,6 @@
  *
  *Return: size of list
  */
-
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new_node = malloc(sizeof(list_t));
@@ -16,9 +15,6 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (!head || !new_node)
 		return (NULL);
 	if (str}
-	{
-		new_node->str = strdup(str);
-		if (!new_node->str)
 	{
 		new_node->str = strdup(str);
 		if (!new_node->str)
