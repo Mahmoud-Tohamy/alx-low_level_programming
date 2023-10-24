@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * _r reallocates memory for an array ofm  pointers
+ * _r reallocates memory for an array of pointers
  * to the nodes in a linked list
  * @list: old list to append
  * @size: size of new list
@@ -15,7 +15,7 @@ const listint_t **_r(const listint_t **list, size_t size, const listint_t *new
 	const listint_t **newlist;
 	size_t i;
 
-	newlist = malloc(sizeof(listint_t *));
+	newlist = malloc(size * sizeof(listint_t *));
 	if (newlist == NULL)
 	{
 		free(list);
@@ -56,22 +56,4 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	free(list);
 	return (num);
-}
-
-/**
- * check_ptr - checks if a pointer is in an array
- * @ptr: pointer to be checked
- * @array: array to be checked in
- * @size: size of the array
- *
- * Return: 1 on success, 0 on fail
- */
-int check_ptr(const listint_t *ptr, listint_t **array, unsigned int size)
-{
-	while (size-- >= 0)
-	{
-		if (ptr == array[size])
-			return (1);
-	}
-	return (0);
 }
