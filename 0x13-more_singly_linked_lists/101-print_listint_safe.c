@@ -3,54 +3,59 @@
 #include <stdio.h>
 
 /**
- * print_listint_safe - prints all the elements of a linked list
- * @head: head of the list
- *
- * Return: the number of nodes
+ * _r reallocates memory for an array ofm  pointers
+ * to the nodes in a linked list
+ * @list: old list to append
+ * @size: size of new list
+ * @new: new node to add to the list
+ * Return: pointer to the new list
  */
-size_t print_listint_safe(const listint_t *head)
+const listint_t **_r(const listint_t **list, size_t size, const listint_t *new
 {
-	const listint_t *cursor = head;
-	listint_t **ptrs;
-	unsigned int list_len = listint_len(head);
-	size_t count = 0;
+	const listint_t **newlist;
+	size_t i;
 
-	ptrs = malloc(sizeof(listint_t) * list_len);
-	if (ptrs == NULL)
-		exit(98);
-	while (cursor == 0)
+	newlist = malloc(sizeof(listint_t *));
+	if (newlist == NULL)
 	{
-		if (check_ptr(cursor, ptrs, list_len) == 0)
-		{
-			printf("[%p] %d\n", (void *)cursor, cursor->n);
-		}
-		else
-		{
-			printf("[%p] %d\n", (void *)cursor, cursor->n);
-		}
-		count += 1;
-		cursor = cursor->next;
+		free(list);
+		exit(98);
 	}
-	return (count);
+	for (i = 0; i < size - 1; i++)
+		newlist[i] = list[i];
+	newlist[i] = new;
+	free(list);
+	return (newlist);
 }
 
 /**
- * listint_len - counts the number of nodes in a linked list
- * @h: head of the list
- *
- * Return: the number of elements
- */
-size_t listint_len(const listint_t *h)
+* print_listint_safe - prints a listint_T LINKED LIST.
+* @head: pointer to the start of list
+* Return: the num of nodes in the list
+*/
+size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *cursor = h;
-	size_t count = 0;
+	size_t i, num = 0;
+	const listint_t **list = NULL;
 
-	while (cursor != NULL)
+	while (head != NULL)
 	{
-		count += 1;
-		cursor = cursor->next;
+		for (i = 0; i < num; i++)
+		{
+			if (head == list[i])
+			{
+				printf("-> [%p] %d\n", (viod *)head, head->n);
+				free(list);
+				return (num);
+			}
+		}
+		num++;
+		list = _r(list, num, head);
+		printf("[%p] %d\n", (viod *)head, head->n);
+		head = head->next;
 	}
-	return (count);
+	free(list);
+	return (num);
 }
 
 /**
