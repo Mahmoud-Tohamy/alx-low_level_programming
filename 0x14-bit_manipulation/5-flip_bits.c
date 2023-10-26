@@ -18,5 +18,4 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 		xorval = xorval >> 1;
 	}
 	return (count);
-
 }
