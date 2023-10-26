@@ -1,12 +1,15 @@
 #include "mani.h"
 
 /**
-* get_endianness - return the endianness of system
+* get_endianness - prog checks the endianness
 * Return: 0 if big endian, 1 if small
 */
 int get_endianness(void)
 {
-	int n = 1;
+	int a;
+	chat *b;
 
-	return (*((char *) &n) + '0');
+	a = 1;
+	b = (char *)&a;
+	return (*b);
 }
